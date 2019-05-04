@@ -1,3 +1,5 @@
+import datetime
+
 class Command:
     '''
     Command defines base class for any command
@@ -10,3 +12,15 @@ class Command:
     
     def response(self):
         raise NotImplementedError
+
+
+class Time(Command):
+    def __init__(self):
+        super().__init__()
+    
+    def recv(self):
+        return
+    
+    def response(self):
+        now = datetime.datetime.now()
+        return 'Current time is {0} hours {1} minutes'.format(now.hours, now.minutes)
