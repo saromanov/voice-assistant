@@ -4,3 +4,4 @@ beautifulsoup4
 vlc
 youtube-dl
 wikipedia
+PyAudio

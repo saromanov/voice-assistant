@@ -12,6 +12,7 @@ import vlc
 import wikipedia
 import random
 from time import strftime
+from command import Time
 
 class Voice:
     def __init__(self, path):
@@ -43,5 +44,4 @@ class Voice:
             print('Unknown error')
     
     def loop(self):
-        while True:
-            self._parse()
+        self._parse()
