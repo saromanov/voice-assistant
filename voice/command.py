@@ -4,3 +4,9 @@ class Command:
     '''
     def __init__(self):
         pass
+    
+    def recv(self):
+        raise NotImplementedError
+    
+    def response(self):
+        raise NotImplementedError

@@ -23,7 +23,13 @@ class Voice:
         rec.pause_threshold = 1
         rec.adjust_for_ambient_noise(source, duration=1)
         rec.listen(mic)
-
+    
+    def _get_command(self, rec):
+        try:
+            command = rec.recognize_google(audio).lower()
+            return command
+        except sr.UnknownValueError:
+            print('Unknown error')
     
     def loop(self):
         while True:
