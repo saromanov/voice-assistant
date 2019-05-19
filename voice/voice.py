@@ -7,9 +7,6 @@ import smtplib
 import requests
 import subprocess
 from pyowm import OWM
-import youtube_dl
-import vlc
-import wikipedia
 import random
 from time import strftime
 from command import Time
@@ -27,7 +24,7 @@ class Voice:
         command = self._get_command(rec)
     
     def _do_command(self, command):
-        ''' do command provides deciding 
+        ''' do command provides deciding    
         of executing of the command based on input
         '''
         if command == 'time':
