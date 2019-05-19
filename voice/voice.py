@@ -31,8 +31,7 @@ class Voice:
         of executing of the command based on input
         '''
         if command == 'time':
-            time = Time()
-            play(time.response())
+            play(Time().response())
 
 
     

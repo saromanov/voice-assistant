@@ -15,6 +15,8 @@ class Command:
 
 
 class Time(Command):
+    ''' represents time command for voice 
+    '''
     def __init__(self):
         super().__init__()
     
