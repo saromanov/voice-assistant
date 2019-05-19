@@ -10,6 +10,7 @@ from pyowm import OWM
 import random
 from time import strftime
 from command import Time
+from play import play
 
 class Voice:
     ''' Voice defines main class for recognition
@@ -26,6 +27,7 @@ class Voice:
             rec.adjust_for_ambient_noise(mic, duration=1)
             audio = rec.listen(mic)
             command = self._get_command(rec, audio)
+            self._do_command(command)
             print(command)
     
     def _do_command(self, command):
@@ -33,9 +35,10 @@ class Voice:
         of executing of the command based on input
         '''
         if self._startWord:
+            print(command.startswith(self._startWord))
             if not command.startswith(self._startWord):
                 return
-        
+        print('time' in command)
         if 'time' in command:
             play(Time().response())
 

@@ -25,4 +25,4 @@ class Time(Command):
     
     def response(self):
         now = datetime.datetime.now()
-        return 'Current time is {0} hours {1} minutes'.format(now.hours, now.minutes)
+        return 'Current time is {0} hours {1} minutes'.format(now.hour, now.minute)
