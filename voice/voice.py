@@ -17,11 +17,11 @@ class Voice:
     
     def _parse(self):
         rec = sr.Recognizer()
-        mic = sr.Microphone()
-        rec.pause_threshold = 1
-        rec.adjust_for_ambient_noise(source, duration=1)
-        rec.listen(mic)
-        command = self._get_command(rec)
+        with sr.Microphone() as mic:
+            rec.pause_threshold = 1
+            rec.adjust_for_ambient_noise(mic, duration=1)
+            audio = rec.listen(mic)
+            command = self._get_command(rec, audio)
     
     def _do_command(self, command):
         ''' do command provides deciding    
@@ -32,7 +32,7 @@ class Voice:
 
 
     
-    def _get_command(self, rec):
+    def _get_command(self, rec, audio):
         try:
             command = rec.recognize_google(audio).lower()
             return command
