@@ -35,10 +35,8 @@ class Voice:
         of executing of the command based on input
         '''
         if self._startWord:
-            print(command.startswith(self._startWord))
             if not command.startswith(self._startWord):
                 return
-        print('time' in command)
         if 'time' in command:
             play(Time().response())
 
