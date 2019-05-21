@@ -41,7 +41,7 @@ class Voice:
             play(Time().response())
         
         if 'wiki' in command:
-            play(Wikipedia().response())
+            play(Wikipedia(query=command).response())
 
 
     
@@ -54,6 +54,3 @@ class Voice:
     
     def loop(self):
         self._parse()
-
-v = Voice('a','')
-v.loop()

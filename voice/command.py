@@ -18,7 +18,7 @@ class Command:
 class Time(Command):
     ''' represents time command for voice 
     '''
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         super().__init__()
     
     def recv(self):
@@ -29,12 +29,13 @@ class Time(Command):
         return 'Current time is {0} hours {1} minutes'.format(now.hour, now.minute)
 
 class Wikipedia(Command):
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
+        self._query = kwargs.get('query')
         super().__init__()
     
     def recv(self):
         return
     
-    def response(self, name):
-        page = wikipedia.Page(name)
+    def response(self):
+        page = wikipedia.Page(self.query)
         return page.content
