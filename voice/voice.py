@@ -9,7 +9,7 @@ import subprocess
 from pyowm import OWM
 import random
 from time import strftime
-from command import Time
+from command import Time, Wikipedia
 from play import play
 
 class Voice:
@@ -39,6 +39,9 @@ class Voice:
                 return
         if 'time' in command:
             play(Time().response())
+        
+        if 'wiki' in command:
+            play(Wikipedia().response())
 
 
     
@@ -51,3 +54,6 @@ class Voice:
     
     def loop(self):
         self._parse()
+
+v = Voice('a','')
+v.loop()
