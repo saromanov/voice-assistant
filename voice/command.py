@@ -1,4 +1,5 @@
 import datetime
+import wikipedia
 
 class Command:
     '''
@@ -26,3 +27,14 @@ class Time(Command):
     def response(self):
         now = datetime.datetime.now()
         return 'Current time is {0} hours {1} minutes'.format(now.hour, now.minute)
+
+class Wikipedia(Command):
+    def __init__(self):
+        super().__init__()
+    
+    def recv(self):
+        return
+    
+    def response(self, name):
+        page = wikipedia.Page(name)
+        return page.content
